@@ -21,4 +21,12 @@ const players = [
 ];
 
 
+function Rankingsofplayers(players) {
+    players.sort((a, b) => b.score - a.score);
+    console.log("🏆 Rankings:");
+    players.forEach((p, i) => console.log(`${i + 1}. ${p.name} - ${p.score} points`));
+}
+
+
+
 
