@@ -27,6 +27,23 @@ function Rankingsofplayers(players) {
     players.forEach((p, i) => console.log(`${i + 1}. ${p.name} - ${p.score} points`));
 }
 
+function Champion(players) {
+    let highestScore = players[0].score;
+    let finalists = players.filter(p => p.score === highestScore);
+
+    while (finalists.length > 1) {
+        console.log(`🔥 Tiebreaker for: ${finalists.map(p => p.name).join(", ")}`);
+        finalists.forEach(p => p.shoot());
+
+        highestScore = Math.max(...finalists.map(p => p.score));
+        finalists = finalists.filter(p => p.score === highestScore);
+    }
+
+    console.log(`🏆 The Champion is ${finalists[0].name} with ${finalists[0].score} points!`);
+}
+
+
+
 
 
 
